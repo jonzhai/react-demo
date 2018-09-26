@@ -1,0 +1,78 @@
+.banner-container{
+    box-sizing: border-box;
+    height: px2rem(260);
+    overflow: hidden;
+    .content{
+        background-image: url(../img/banner-bg@2x.png);
+        background-repeat: no-repeat; 
+        background-size: cover; 
+        border-radius: 10px;
+        color: #fff;
+        height: px2rem(200);
+        width: px2rem(694);
+        margin: px2rem(30) auto;
+        overflow: hidden;
+        position: relative;
+        @include font-dpr(28px);
+        .immediatelyLogin{
+            height: px2rem(32);
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: px2rem(40);
+            top: px2rem(70);
+            color: #fff;
+            .iconfont{
+                // background-image: url(./img/icon-circle-right@2x.png);
+                // background-repeat: no-repeat; 
+                // background-size:cover; 
+                // height: 100%;
+                // width: px2rem(32);
+                @include font-dpr(28px);
+                color: #f7ff70;
+                margin-left:  px2rem(16);
+                vertical-align: middle;
+                // position: relative;
+                // width: px2rem(32);
+            }
+        }
+        .noProfit{
+            .getInfo{
+                color:#f7ff70;
+            }
+        }
+        .todayProfit{
+            left: px2rem(40);
+            position: absolute;
+            top: px2rem(30);
+            .title{
+                color:#eee;
+            }
+            .detail-profit{
+                @include font-dpr(50px);
+            }
+
+        }
+        .investmentPlatform{
+            height: px2rem(32);
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: px2rem(20);
+            left: px2rem(40);
+            .question{
+                background-image: url(../img/sprite-home@2x.png);
+                background-position: px2rem(-166) px2rem(-7);
+                background-size:  px2rem(400);
+                background-repeat: no-repeat; 
+                display: inline-block;
+                position: relative;
+                height: 100%;
+                width: px2rem(32);
+                margin-right:  px2rem(16);
+            }
+        
+        }
+    }
+
+}

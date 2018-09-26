@@ -1,0 +1,31 @@
+@import './base.scss';
+$design-width: 750;
+@function px2rem( $px) {
+    @return ($px/$design-width*10) * 1rem; //对应js 
+}
+
+@mixin font-dpr($font-size) {
+    font-size: $font-size*0.5;
+    [data-dpr="2"] & {
+        font-size: $font-size;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size *1.5;
+    }
+}
+
+@mixin img-dpr($url) {
+    background-image: url($url+'@1x.png');
+    [data-dpr="2"] & {
+        background-image: url($url+'@2x.png');
+    }
+    [data-dpr="3"] & {
+        background-image: url($url+'@3x.png');
+    }
+}
+
+
+
+
+
+

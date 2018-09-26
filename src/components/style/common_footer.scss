@@ -1,0 +1,68 @@
+.fixed_footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    .footer-nav{
+        display: flex;
+        height: px2rem(90);
+        // height:  100%;
+        flex-direction: row;
+        box-sizing: border-box;
+        padding-top: px2rem(3);
+        background-color: #fff;
+        .nav-item{
+            flex:1;
+            >a{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                .icon-little{
+                    width: px2rem(42);
+                    height: px2rem(42);
+                    margin: 0 auto;
+                    margin-top:  px2rem(5);
+                    background-image: url(../img/sprite-home@2x.png);
+                    background-repeat: no-repeat;
+                    background-size: px2rem(444);
+                }
+                .icon-text{
+                    text-align: center;
+                    @include font-dpr(22px);
+                    margin-top:  px2rem(5);
+                    color: #999;
+                }
+                &.home{
+                    .icon-little{
+                        background-position: px2rem(-46) px2rem(-6); 
+                    }
+                }
+                 &.investment{
+                    .icon-little{
+                        background-position: px2rem(-140) px2rem(-5); 
+                    }
+                }
+                 &.buy-car{
+                    .icon-little{
+                        background-position: px2rem(0) px2rem(-5); 
+                    }
+                }
+                 &.personal-center{
+                    .icon-little{
+                        background-position: px2rem(-93) px2rem(-5); 
+                    }
+                }
+                &.selected{
+                    .icon-little{
+                        background-position-y: px2rem(-53);
+                    }
+                }
+
+            }
+        }
+    }
+}

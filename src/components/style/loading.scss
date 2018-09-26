@@ -1,0 +1,20 @@
+
+.loading{
+    height: px2rem(60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:px2rem(20) 0 px2rem(100);
+    border-top: 1px solid #999; 
+    border-bottom: 1px solid #999; 
+    .icon{
+        height: px2rem(48);
+        width: px2rem(48);
+        margin-right: px2rem(20);
+        background: url(../img/loading.gif) no-repeat;
+        background-size: cover; 
+    }
+    >p{
+        color: #999;
+    }
+}
