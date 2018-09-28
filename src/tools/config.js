@@ -1,0 +1,1 @@
+export const DEFAULT_IP = "http://yuanying.zsbzg.net:80";

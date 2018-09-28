@@ -1,12 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+// import LazyLoad from 'react-lazy-load';
 import {toEllipsis, toPrecent} from 'src/tools/tools';
+import {DEFAULT_IP} from 'src/tools/config';
 import './style/recommendList.scss';
 const Item = ({item}) => {
     return (
         <Link className="item" to={{pathname: `/home/invesmentDetail/${item.id}`}}>
             <div className="img-container">
-                <img src={item.photoIp+item.photo[0].src} /> 
+                {/* <LazyLoad> */}
+                    <img src={DEFAULT_IP+item.photo[0].src} alt={item.id}/> 
+                {/* </LazyLoad> */}
             </div>
             <p className="describe">{toEllipsis(item.pName, 20)}</p>
             <div className="item-info">

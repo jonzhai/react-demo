@@ -1,0 +1,15 @@
+.slider{
+    min-height: 1px;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    .slider-group{
+      position: relative;
+      .slider-item{
+        float: left;
+        box-sizing: border-box;
+        text-align: center;
+        height: auto;
+      }
+    }
+  }

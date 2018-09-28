@@ -1,14 +1,18 @@
 import React from 'react';
 import './home.scss';
 
-import Swiper from 'src/components/Swiper';
+import SwiperItem from 'src/components/swiperItem_home';
 import CommonFooter from 'src/components/commonFooter';
 import Banner from './children/banner';
 import RecommendList from './children/recommendList';
 import Loading from 'src/components/loading/loading';
-import InvesmentDetail from 'src/pages/invesmentDetail/invesmentDetail'
+// import InvesmentDetail from 'src/pages/invesmentDetail/invesmentDetail'
+import InvesmentDetail from 'src/redux/containers/invesmentDetail';
 import {Route} from 'react-router-dom';
 import {getRecommenProduct, getIndexAdvertiseImage} from 'src/api/home_api';
+import {Carousel} from 'antd';
+
+import Scroll from 'src/components/scroll/scroll';
 class Home extends  React.Component {
     constructor(props){
         super(props);
@@ -27,14 +31,15 @@ class Home extends  React.Component {
        this._getIndexAdvertiseImage();
     } 
     componentDidMount() {
-        let htmlDOM = document.documentElement;
-        document.body.onscroll = () => {
-            if(htmlDOM.scrollTop + htmlDOM.offsetHeight == htmlDOM.scrollHeight){
-                if(!this.state.isLastPage){
-                    this._getRecommenProduct({pageNumber: ++this.state.curpage})
-                }
-            }
-        }
+        // let htmlDOM = document.documentElement;
+        // document.body.onscroll = () => {
+        //     console.log(1)
+        //     if(htmlDOM.scrollTop + htmlDOM.offsetHeight == htmlDOM.scrollHeight){
+        //         if(!this.state.isLastPage){
+        //             this._getRecommenProduct({pageNumber: ++this.state.curpage})
+        //         }
+        //     }
+        // }
       
         
     }
@@ -66,15 +71,55 @@ class Home extends  React.Component {
             curItem:  index
         })
     }
+    pullup(){
+        console.log("up")
+        if(!this.state.isLastPage){
+            this._getRecommenProduct({pageNumber: ++this.state.curpage})
+        }
+        this.child.finishPullUp();
+    }
+    pullingDown(){
+        console.log("down")
+        this.child.finishPullDown();
+        
+    }
     render(){
+        let wrapperStyle = {
+            position: "fixed",
+            top: "400px",
+            bottom: "100px",
+            left: 0,
+            right: 0,
+            overflow: "hidden"
+        }
         return (
             <div className="home-page">
-                <div className="banner-swiper">
-                    <Swiper list={this.state.adList} height="374px"></Swiper>
+                
+                <div className="scroll-container">
+                    <Scroll 
+                        style={wrapperStyle}
+                        pullup = {()=>{this.pullup()}}
+                        pullingDown = {()=>{this.pullingDown()}}
+                        ref = {(node)=>{
+                            this.child = node;
+                        }}
+                    >
+                        <div>
+                            <div className="banner-swiper">
+                                {/* <Swiper list={this.state.adList}></Swiper> */}
+                                <Carousel autoplay style={{width: "100%",height: "100%"}}>
+                                    {this.state.adList && this.state.adList.length > 0 && this.state.adList.map((item, index) => {
+                                        return <SwiperItem key={index} item={item}></SwiperItem>
+                                    })}
+                                </Carousel>
+                            </div>
+                            <Banner bannerState="noLogin"></Banner>
+                            <RecommendList list={this.state.recommendList}></RecommendList>
+                            {this.state.showLoading && <Loading></Loading>}
+                        </div>
+                    </Scroll>
                 </div>
-                <Banner bannerState="noLogin"></Banner>
-                <RecommendList list={this.state.recommendList}></RecommendList>
-                {this.state.showLoading && <Loading></Loading>}
+                
                 <CommonFooter></CommonFooter>
                 <Route exact  path="/home/invesmentDetail/:id" component={InvesmentDetail} />
             </div>

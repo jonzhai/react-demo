@@ -1,0 +1,254 @@
+@import '../../style/my_style.scss';
+.invesmentDetail{
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    .scroll-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: px2rem(88);
+        overflow: hidden;
+       
+    }
+    .loading-container{
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translate3d(-50%,-50%,0);
+        // left: 0;
+        // right: 0;
+        // top: 0 ;
+        // bottom: 0;
+        // background-color: rgba(0,0,0,0.5);
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+
+
+    }
+    .swiper-container{
+        height: px2rem(374);
+        width: 100%;
+        text-align: bottom;
+        overflow: hidden;
+    }
+    .product-info{
+         height: px2rem(298);
+         box-sizing: border-box;
+         padding: 0 px2rem(30);
+         border-bottom:px2rem(20) solid #f5f5f5;
+         display: flex;
+         flex-direction: column;
+        .product-info-head{
+            @include font-dpr(36px);
+            color: #333333; 
+            height: px2rem(74);
+            // @include ml-ellipsis(1);
+            // @include sl-ellipsis();
+            line-height: 2em;
+        
+        }
+        .product-info-body{
+            height: px2rem(135);
+            border-bottom: 1px solid #e4e4e4; 
+            display: flex;
+            // align-items: center;
+            div{
+                height: 100%;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+               justify-content: center;
+                .detail-title{
+                    color:#999999;
+                    @include font-dpr(22px);
+                    margin-bottom: px2rem(16);
+                }
+                .dark{
+                    color:#333;
+                     @include font-dpr(36px); 
+                }
+                &.left-part{
+                    width:  px2rem(200);
+                    .annualEarn{
+                        color:#f57f3f;
+                         @include font-dpr(48px);
+                         .little{
+                            @include font-dpr(28px);  
+                         }
+                    }
+                    // border-right:1px solid #333; 
+                }
+                &.left-part:after{
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 1px;
+                    height: px2rem(48);
+                    background-color: #e4e4e4;
+                    right: 0;
+                    // top: 50%;
+                    // transform: translate3d(0,-50%,0);
+                    bottom: px2rem(40);
+                }
+                &.middle-part{
+                    width:  px2rem(253);
+                    text-align: center; 
+                }
+                 &.middle-part:after{
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 1px;
+                    height: px2rem(48);
+                    background-color: #e4e4e4;
+                    right: 0;
+                    bottom: px2rem(40);
+                    // top: 50%;
+                    // transform: translate3d(0,-50%,0);
+                }
+                &.right-part{
+                    padding-left: px2rem(50);
+                }
+            }
+            border-bottom: 1px solid #e4e4e4;
+        }
+        .product-info-foot{
+            height: px2rem(88);
+            color: #666666;
+            @include font-dpr(24px);
+            display: flex;
+            align-items: center;
+            .inversUnderline{
+                margin-right:  px2rem(84);
+            }
+         }
+    }
+    .investor-container{
+        height: px2rem(88);
+        padding: 0 px2rem(30);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom:px2rem(20) solid #f5f5f5;
+        .investor-img {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            img{
+                height: px2rem(50);
+                width: px2rem(50);
+                border-radius: 50%;
+                margin-left: px2rem(-10);
+                // transform: translate3d(-20px,0,0);
+                &:first-child{
+                    margin-left: 0;
+                }
+            }
+        }
+        .investors{
+            @include font-dpr(24px);
+
+            .investor-count{
+                color: #5e93fc;
+               
+            }
+             .iconfont{
+                @include font-dpr(24px); 
+            }
+        }
+    }
+    .productDetail-container{
+        .nav{
+            height: px2rem(90);
+            box-sizing: border-box;
+            border-bottom: 1px solid #ededed;
+            display: flex;
+            >div{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                span{
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    box-sizing: border-box;
+
+                }
+                &.active{
+                    span{
+                        border-bottom:px2rem(4) solid #5e93fc;
+                        color: #5e93fc; 
+                    }
+                }
+            }
+        }
+        .hScroll{
+            width: 100%;
+            // overflow-x: hidden;
+            height: auto;
+            .swiper-container{
+                display: flex;
+                height: auto;
+                width: 100vw;
+            }
+        }
+    }
+    .fixed-footer{
+        position: fixed;
+        bottom: 0;
+        height: px2rem(88);
+        left: 0;
+        right: 0;
+        padding: px2rem(16) px2rem(28);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        @include font-dpr(28px);
+        
+        .servers{
+            color:#666666;
+            height: 100%;
+            display: flex;
+            flex: 1;
+            margin-right: px2rem(48);
+            border-right: 1px solid #e4e4e4; 
+            align-items: center;
+            .icon{
+                background-image: url('./img/serversPhone@2x.png');
+                background-repeat: no-repeat; 
+                background-size: contain; 
+                width:  px2rem(30);
+                height: px2rem(35);
+                padding-right: px2rem(20);
+            }
+        }
+        .control-btn{
+            display: flex;
+            width: px2rem(480);
+            height: 100%;
+            border-radius: px2rem(28);
+            overflow: hidden;
+            span{
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                &.history-btn{
+                    background-color: #5e93fc;
+
+                }
+                &.fast-btn{
+                    background-color: #f57f3f;
+                }
+            }
+        }
+    }
+}

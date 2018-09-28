@@ -3,7 +3,13 @@
     height: px2rem(374);
     overflow: hidden;
 }
-.banner-swiper>div{
-    height: 100%;
-    width: 100%;
+.scroll-container{
+    position: fixed;
+    top: 0;
+    bottom: px2rem(90);
+    left: 0;
+    right: 0;
+    overflow: hidden;
 }
+
+@import '../../style/my_style.scss';

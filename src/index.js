@@ -8,6 +8,8 @@ import reducers from './redux/reducers';
 // import './index.css';
 import App from './components/App.jsx';
 import registerServiceWorker from './registerServiceWorker';
+import initReactFastclick from 'react-fastclick';
+initReactFastclick();
 
 export const store = createStore(reducers);
 

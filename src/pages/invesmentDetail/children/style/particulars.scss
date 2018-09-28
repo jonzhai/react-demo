@@ -1,0 +1,32 @@
+.particulars{
+    // flex-shrink: 0;
+    // width: 100vw;
+    box-sizing: border-box;
+    padding: px2rem(28) px2rem(28) px2rem(88);
+    .item{
+        margin-bottom: px2rem(60);
+        text-align: left;
+        @include font-dpr(28px);
+        .title{
+            color: #333333;
+            margin-bottom: px2rem(20);
+            font-weight: 700;
+        }
+        .content{
+            color:#666666;
+            line-height: 1.4em;
+        }
+    }
+    .noInfo{
+        .img-container{
+            width: px2rem(260);
+            height: px2rem(190);
+            margin: 0 auto;
+        }
+        .desc{
+             @include font-dpr(28px);
+             color: #999999;
+             text-align: center;
+        }
+    }
+}

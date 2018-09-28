@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter, HashRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter, HashRouter, Route, Switch, Redirect} from 'react-router-dom';
 import 'antd/dist/antd.css'
 // import  'src/style/common.css';
 import  HomePage  from "src/pages/home/home.jsx";
@@ -14,7 +14,8 @@ class App extends Component {
       <div className="app" style={appStyle}>
           <HashRouter>
             <Switch>
-                <Route path="/" exact component={HomePage} />
+                {/* <Route path="/" exact component={HomePage} /> */}
+                <Route path="/" exact render={()=><Redirect to="/home"/>}/>
                 <Route path="/home" component={HomePage} />
                 {/* <Route path="/invesment" component={Invesment} />
                 <Route path="/cars" component={Cars} />

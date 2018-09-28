@@ -41,8 +41,30 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 // Tools like Cloud9 rely on this.
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+
+//获取本地ip
+let IP = "";
+function getIp(){
+  var os=require('os'),
+    iptable={},
+    ifaces=os.networkInterfaces();
+  for (var dev in ifaces) {
+    ifaces[dev].forEach(function(details,alias){
+      if (details.family=='IPv4') {
+        iptable[dev+(alias?':'+alias:'')]=details.address;
+      }
+    });
+  }
+
+  Object.entries(iptable).forEach(([key,val]) => {
+      if(key.includes('WLAN')){
+        IP = val;
+      }
+  });
+}
+getIp();
 // const HOST = process.env.HOST || '0.0.0.0';
-const HOST = '192.168.1.135' || '0.0.0.0';
+const HOST = IP || '0.0.0.0';
 
 if (process.env.HOST) {
   console.log(

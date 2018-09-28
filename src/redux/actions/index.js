@@ -1,6 +1,6 @@
-export const changeAdList = (list) => {
+export const login = (curCount) => {
     return {
-        type: 'CHANGE_ADLIST',
-        adList: list
+        type: 'LOGIN',
+        curCount: curCount
     }
 }

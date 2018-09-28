@@ -1,0 +1,60 @@
+.detail{
+    flex-shrink: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    
+    padding: 0 px2rem(30);
+    .carNum{
+        box-sizing: border-box;
+        height: px2rem(96);
+        border-bottom: 1px solid #ededed;
+        display: flex;
+        align-items: center;
+        @include font-dpr(28px);
+        color: #333333;
+    }
+    .alreadyLog{
+        >p{
+            height: px2rem(90);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include font-dpr(28px);
+            color: #333333;
+            &.invoice-date{
+                border-bottom: 1px solid #ededed;
+            }
+        }
+        .invoice-title{
+            @include font-dpr(28px);
+            font-weight: 700;
+            color: #333333; 
+        }
+        .vehicle-certificate-container{
+            .title{
+                @include font-dpr(28px);
+                color: #333333;
+                font-weight: 700;
+                padding: px2rem(30) 0 px2rem(20);
+            }
+            .vehicle-certificate{
+                display: block;
+                width: 100%;
+                margin-bottom: px2rem(10);
+            }
+        } 
+    }
+    .notLog{
+        .title{
+            color:#333333;
+            font-weight: 700;
+             @include font-dpr(28px);
+             margin: px2rem(30) 0 px2rem(16);
+        }
+        .nologin{
+            display: block;
+            width: 100%;
+        }
+    }
+   
+}
