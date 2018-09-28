@@ -15,6 +15,7 @@ class Scroll extends React.Component {
     }
     constructor(props){
         super(props);
+        
     }
     componentDidMount(){
         setTimeout(() => {
@@ -26,7 +27,7 @@ class Scroll extends React.Component {
         if (!this.refs.wrapper) {
           return
         }
-        console.log(this.props.click)
+        console.log(this.props.scrollY)
         this.scroll = new BScroll(this.refs.wrapper, {
           probeType: this.props.probeType,
           click: true,
@@ -120,12 +121,13 @@ class Scroll extends React.Component {
         let wrapperStyle = {
             width: '100%',
             height: '100%'
+
         }
         return (
             <div className="wrapper" ref="wrapper" style={wrapperStyle}>
                 {React.Children.map(this.props.children, function (child) {
-                    return <div>{child}</div>
-                    })
+                    return child;
+                  })
                 }
             </div>
         )

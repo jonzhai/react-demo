@@ -1,0 +1,80 @@
+.list-item{
+    height:px2rem(168);
+    overflow: hidden;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e4e4e4;
+    display: flex;
+    >div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-container{
+        width: px2rem(219);
+        position: relative;
+        img{
+           height:px2rem(90); 
+        }
+        .bandge{
+            position: absolute;
+            left: px2rem(2);
+            top: px2rem(20);
+            width: px2rem(50);
+            height:px2rem(30); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // text-align: center;
+            // line-height: px2rem(30); 
+            color:#fff;
+            @include font-dpr(18px);
+            &.blue-bg{
+                background-color: #56adff; 
+            }
+            &.red-bg{
+                background-color: #fe3925; 
+            }
+
+        }
+    }
+    .yield-container{
+        width: px2rem(164);
+        flex-direction: column;
+        .yield-rate{
+            color: #f57f3f;
+            @include font-dpr(36px);
+        }
+        .yield-desc{
+            @include font-dpr(22px);
+            color: #999;
+        }
+    }
+    .invesment-regulation{
+        width: px2rem(184);
+        flex-direction: column;
+        .invesment-underline{
+            color: #333333;
+            @include font-dpr(28px);
+        }
+        .lock-days{
+            @include font-dpr(22px);
+            color: #999;
+            span{
+               color: #5e93fc;  
+            }
+        }
+    }
+    .go-invesment{
+        flex: 1;
+        .invesment-btn{
+            width: px2rem(120);
+            height: px2rem(60);
+            color: #b2b2b2;
+            border-radius: px2rem(30);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #f57f3f;
+        }
+    }
+}

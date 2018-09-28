@@ -10,8 +10,7 @@ import Loading from 'src/components/loading/loading';
 import InvesmentDetail from 'src/redux/containers/invesmentDetail';
 import {Route} from 'react-router-dom';
 import {getRecommenProduct, getIndexAdvertiseImage} from 'src/api/home_api';
-import {Carousel} from 'antd';
-
+import {Carousel,Icon} from 'antd';
 import Scroll from 'src/components/scroll/scroll';
 class Home extends  React.Component {
     constructor(props){
@@ -84,20 +83,12 @@ class Home extends  React.Component {
         
     }
     render(){
-        let wrapperStyle = {
-            position: "fixed",
-            top: "400px",
-            bottom: "100px",
-            left: 0,
-            right: 0,
-            overflow: "hidden"
-        }
         return (
             <div className="home-page">
                 
                 <div className="scroll-container">
                     <Scroll 
-                        style={wrapperStyle}
+                       
                         pullup = {()=>{this.pullup()}}
                         pullingDown = {()=>{this.pullingDown()}}
                         ref = {(node)=>{
@@ -115,13 +106,15 @@ class Home extends  React.Component {
                             </div>
                             <Banner bannerState="noLogin"></Banner>
                             <RecommendList list={this.state.recommendList}></RecommendList>
+              
                             {this.state.showLoading && <Loading></Loading>}
                         </div>
                     </Scroll>
                 </div>
                 
                 <CommonFooter></CommonFooter>
-                <Route exact  path="/home/invesmentDetail/:id" component={InvesmentDetail} />
+                {/* <Route   path="invesmentDetail/:id" component={InvesmentDetail} /> */}
+                <Route path={`${this.props.match.url}/invesmentDetail/:id`} component={InvesmentDetail}/>
             </div>
         )
     }

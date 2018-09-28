@@ -6,7 +6,7 @@ import {DEFAULT_IP} from 'src/tools/config';
 import './style/recommendList.scss';
 const Item = ({item}) => {
     return (
-        <Link className="item" to={{pathname: `/home/invesmentDetail/${item.id}`}}>
+        <Link className="item" to={{pathname: `/home/invesmentDetail/${item.id}`}} >
             <div className="img-container">
                 {/* <LazyLoad> */}
                     <img src={DEFAULT_IP+item.photo[0].src} alt={item.id}/> 

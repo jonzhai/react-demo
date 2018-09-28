@@ -6,7 +6,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 50;
+    z-index: 101;
     .scroll-container{
         position: absolute;
         top: 0;
@@ -226,7 +226,7 @@
                 background-size: contain; 
                 width:  px2rem(30);
                 height: px2rem(35);
-                padding-right: px2rem(20);
+                margin-right: px2rem(20);
             }
         }
         .control-btn{
