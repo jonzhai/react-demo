@@ -1,0 +1,68 @@
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.chooseTime{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 100;
+    transition: all 0.5s;
+    animation: fade 0.5s ease;
+    .iconfont{
+        position: absolute;
+        left: px2rem(36);
+        top: px2rem(29);
+        // padding: px2rem(10);
+        @include font-dpr(30px); 
+    }
+    .content{
+        position: absolute;
+        top: px2rem(65);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .title-container{
+            height: px2rem(170);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: px2rem(36);
+            .title{
+                @include font-dpr(36px);
+                margin-bottom: px2rem(16);
+            }
+            .detail{
+                @include font-dpr(22px);
+                color: #6c7179;
+            }
+        }
+        .all-time-container{
+            .title{
+                height: px2rem(48);
+                line-height: px2rem(48);
+                padding-left: px2rem(36);
+                background-color: #ededed;
+                 @include font-dpr(22px);
+            }
+            .time-item{
+                height: px2rem(96);
+                line-height: px2rem(96);
+                text-align: center;
+                 @include font-dpr(32px);
+                color: #6c7179;
+                &.active{
+                    background-color: #f5f5f5;
+                    color: #42bd55;
+                }
+            }
+        }
+    }
+}

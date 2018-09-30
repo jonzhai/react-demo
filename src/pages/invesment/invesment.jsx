@@ -16,6 +16,9 @@ import ListItem from './children/listItem';
 import CommonFooter from 'src/components/commonFooter';
 import InvesmentDetail from 'src/redux/containers/invesmentDetail';
 import {Route} from 'react-router-dom';
+import ChooseTime from './children/chooseTime';
+import ChooseCity from './children/chooseCity';
+
 class Inversment extends React.Component{
     constructor(props){
         super(props)
@@ -168,6 +171,49 @@ class Inversment extends React.Component{
         this.navScroll.scrollToElement(lis[index],0);
         this._getProductByCid({cid: item.cid});
     }
+    toogleChooseTime(){
+        let showTime = this.state.showChooseTime;
+        this.setState({
+            showChooseTime: !showTime
+        })
+    }
+    toogleChooseCity(){
+        let showCity = this.state.showChooseCity;
+        this.setState({
+            showChooseCity: !showCity
+        })
+    }
+    chooseTime(time){
+        this.setState({
+            curTime: time,
+            hotLists: [],
+            commonLists: [],
+            showChooseTime: false
+        })
+        this._getProductByCid({cycle: time});
+    }
+    chooseCity(city){
+      
+        if(!city){return};
+        let tempCity = {};
+        if(!city.cityId){
+            tempCity.cityId = null;
+            tempCity.lat = city.latLng.lat;
+            tempCity.lng = city.latLng.lng;
+        }else{
+            tempCity.cityId = city.cityId;
+            tempCity.lat = null;
+            tempCity.lng = null;
+        }
+        tempCity.name = city.name;
+        this.setState({
+            curCity: city,
+            hotLists: [],
+            commonLists: [],
+            showChooseCity: false
+        })
+        this._getProductByCid(tempCity);
+    }
     render(){
         return (
             <div id="invesment">
@@ -197,12 +243,12 @@ class Inversment extends React.Component{
                     </Scroll>
                 </div> 
                 <div className="timeAndRegion">
-                    <div className="time-btn" onClick={()=>{this.setState({showChooseTime: true})}}>
+                    <div className="time-btn" onClick={this.toogleChooseTime.bind(this)}>
                         <span>持有时限</span>
                         <span>{this.state.curTime}日</span>
                         <Icon className="iconfont" type="down" theme="outlined" />
                     </div>
-                    <div className="region-btn" onClick={()=>{this.setState({showChooseCity: true})}} >
+                    <div className="region-btn" onClick={this.toogleChooseCity.bind(this)} >
                         <span >地区</span>
                         <span>{ toEllipsis(this.state.curCity.name, 5)}</span>
                         <Icon className="iconfont" type="down" theme="outlined" />
@@ -276,6 +322,22 @@ class Inversment extends React.Component{
                 </div> 
                 <div className="footer-container" ref="footer">
                     <CommonFooter></CommonFooter>
+                </div>
+                <div style={{display:this.state.showChooseTime ? "block": "none"}}>
+                    <ChooseTime 
+                        close={this.toogleChooseTime.bind(this)}
+                        chooseTime={ this.chooseTime.bind(this)}
+                        curTime = {this.state.curTime}
+                    ></ChooseTime>
+                </div>
+                <div style={{display:this.state.showChooseCity ? "block": "none"}}>
+                    <ChooseCity
+                        close = {this.toogleChooseCity.bind(this)}
+                        chooseCity = {this.chooseCity.bind(this)}   
+                        curCity = {this.state.curCity}
+                        show = {this.state.showChooseCity}
+                    ></ChooseCity>
+                
                 </div>
                 {/*<transition-group name="fade">
                     <choose-time v-show="showChooseTime"  @close="closeChooseTime" key="chooseTime" :curTime="curTime"></choose-time>
